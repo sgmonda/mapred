@@ -1,0 +1,9 @@
+{
+    "name": "mapred",
+    "version": "0.0.1",
+    "description": "Node.js native MapReduce implementation",
+    "main": "main.js",
+    "author": "Sergio Garcia Mondaray <sgmonda@gmail.com>",
+    "keywords": ["google", "mapreduce", "cluster"],
+    "engines": { "node": "*" }
+}
