@@ -1,4 +1,4 @@
-Google's MapReduce module for NodeJS.
+Google's MapReduce implementation for NodeJS.
 
 Install
 =======
@@ -81,8 +81,9 @@ var reduce = function(key, values){
 
 // MapReduce call =============================================================
 
-var count = mapreduce(information, map, reduce);
-console.log(count);
+mapreduce(information, map, reduce, function(result){
+    console.log(result);
+});
 
 ```
 
