@@ -75,7 +75,10 @@ var mapreduce_cluster = function(pieces, map, reduce, callback){
                     full_intermediate.sort();
 
                     groups = full_intermediate.reduce(function(res, current){
-                        var group = res[current[0]] || [];
+
+                        var group = res[current[0]];
+                        if(!group || typeof group != 'object') group = []; // <<<<<<<<< check this!
+                        
                         group.push(current[1]);
                         res[current[0]] = group;
                         return res; 

@@ -1,4 +1,4 @@
-Google's MapReduce implementation for NodeJS.
+Google's MapReduce multi-core implementation for NodeJS.
 
 Install
 =======

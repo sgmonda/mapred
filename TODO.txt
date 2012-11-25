@@ -1,0 +1,6 @@
+TODO LIST
+=========
+
+[X] Implement a single-core version of MapReduce
+[X] Parallelize map phase
+[ ] Parallelize reduce phase
