@@ -1,7 +1,5 @@
 This is a native NodeJS Google's MapReduce implementation. 
 
-This is a very young project. Be patient.
-
 Install
 =======
 
@@ -21,10 +19,12 @@ var mapreduce = require('mapred')(1);
 Then, you can use mapreduce function in your code:
 
 ```javascript
-var result = mapreduce(information, function(key, value){
+mapreduce(information, function(key, value){
     // Your map() implementation
 }, function(key, values){
     // Your reduce() implementation
+}, function(result){
+   // This is your callback
 });
 ```
 
@@ -39,14 +39,19 @@ Example
 The most common example of using MapReduce is counting the number of occurrences of each word in a collection of texts. With ``mapred`` module, you can do it as follows:
 
 ```javascript
-var mapreduce = require('mapred')(1); // 1 = single core version
+var mapreduce = require('mapred')(1); // 1 = single core version (slowest)
+//var mapreduce = require('mapred')(3); // Use a cluster of 3 processes
+//var mapreduce = require('mapred')(); // Leave blank for max performance
 
 // Information to process =====================================================
 
 var information = [
     ['frase primera', 'primer trozo de informacion para procesado primer trozo'],
     ['segunda frase', 'segundo trozo de informacion trozo de'],
-    ['último cacho', 'otro trozo para ser procesado otro otro otro trozo']
+    ['cacho 3', 'otro trozo para ser procesado otro otro otro trozo'],
+    ['cuarta frase', 'primer trozo de informacion para procesado primer trozo'],
+    ['frase 5', 'segundo trozo de informacion trozo de'],
+    ['sexto cacho', 'otro trozo para ser procesado otro otro otro trozo']
 ];
 
 // User map implementation =====================================================
@@ -85,14 +90,15 @@ If you save the code above into a file called ``mapreduce_example.js`` and you r
     node mapreduce_example.js
 
 You'll get the following
+    { de: 6,
+      informacion: 4,
+      otro: 8,
+      para: 4,
+      primer: 4,
+      procesado: 4,
+      segundo: 2,
+      ser: 2,
+      trozo: 12 }
 
-    { de: 3,
-      informacion: 2,
-      otro: 4,
-      para: 2,
-      primer: 2,
-      procesado: 2,
-      segundo: 1,
-      ser: 1,
-      trozo: 6 }
+
 
