@@ -92,15 +92,17 @@ If you save the code above into a file called ``mapreduce_example.js`` and you r
     node mapreduce_example.js
 
 You'll get the following
-    { de: 6,
-      informacion: 4,
-      otro: 8,
-      para: 4,
-      primer: 4,
-      procesado: 4,
-      segundo: 2,
-      ser: 2,
-      trozo: 12 }
 
+```
+{ de: 6,
+  informacion: 4,
+  otro: 8,
+  para: 4,
+  primer: 4,
+  procesado: 4,
+  segundo: 2,
+  ser: 2,
+  trozo: 12 }
+```
 
 
