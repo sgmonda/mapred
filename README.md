@@ -1,4 +1,4 @@
-This is a native NodeJS Google's MapReduce implementation. 
+Google's MapReduce module for NodeJS.
 
 Install
 =======
@@ -10,10 +10,11 @@ To install the most recent release from npm, run:
 Use
 ====
 
-To load this module, simply write the following (where 1 is the count of cores):
+To load this module, simply write the following
 
 ```javascript
-var mapreduce = require('mapred')(1);
+var mapreduce = require('mapred')(); // multi-core execution (fastest)
+//var mapreduce = require('mapred')(1); // 1 = single core version (slowest)
 ```
 
 Then, you can use mapreduce function in your code:
@@ -39,9 +40,9 @@ Example
 The most common example of using MapReduce is counting the number of occurrences of each word in a collection of texts. With ``mapred`` module, you can do it as follows:
 
 ```javascript
-var mapreduce = require('mapred')(1); // 1 = single core version (slowest)
+var mapreduce = require('mapred')(); // Leave blank for max performance
+//var mapreduce = require('mapred')(1); // 1 = single core version (slowest)
 //var mapreduce = require('mapred')(3); // Use a cluster of 3 processes
-//var mapreduce = require('mapred')(); // Leave blank for max performance
 
 // Information to process =====================================================
 
