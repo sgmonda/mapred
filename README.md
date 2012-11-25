@@ -1,4 +1,4 @@
-This is a native NodeJS MapReduce implementation.
+This is a native NodeJS Google's MapReduce implementation. 
 
 This is a very young project. Be patient.
 
@@ -31,14 +31,12 @@ var result = mapreduce(information, function(key, value){
 Obviously, to use MapReduce (according to [Google's MapReduce specification](http://research.google.com/archive/mapreduce.html)) you have to implement two functions:
 
 * ``map(key1, value1) -> list(key2, value2)``: takes an input pair and produces a set of intermediate key/value pairs.
-* ``reduce(key2, list(value2)) -> list(value2)``: accepts an intermediate key and a set of values for that key, and merges togetuer these values to form a possibly smaller set of values.
+* ``reduce(key2, list(value2)) -> list(value2)``: accepts an intermediate key and a set of values for that key, and merges together these values to form a possibly smaller set of values.
 
 Example
 -------
 
-The most commonly used example use of MapReduce is counting the number of occurrences of each word in a collection of texts. With ``mapred`` module, you can do it as follows:
-
-Then, you can use mapreduce function in your code:
+The most common example of using MapReduce is counting the number of occurrences of each word in a collection of texts. With ``mapred`` module, you can do it as follows:
 
 ```javascript
 var mapreduce = require('mapred')(1); // 1 = single core version
