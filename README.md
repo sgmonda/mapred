@@ -57,13 +57,11 @@ var information = [
 
 // User map implementation =====================================================
 
-var map = function(key, value){
+var map = (key, value) => {
     var list = [], aux = {};
     value = value.split(' ');
-    value.forEach(function(w){
-        aux[w] = (aux[w] || 0) + 1;
-    });
-    for(var k in aux){
+    value.forEach(w => { aux[w] = (aux[w] || 0) + 1 });
+    for (var k in aux){
         list.push([k, aux[k]]);
     }
     return list;
@@ -71,13 +69,10 @@ var map = function(key, value){
 
 // User reduce implementation =================================================
 
-var reduce = function(key, values){
-    var sum = 0;
-    values.forEach(function(e){
-        sum += e;
-    });
-    return sum;
-};
+var reduce = (key, values) => values.reduce(
+    (sum, value) => sum + value,
+    0
+);
 
 // MapReduce call =============================================================
 
